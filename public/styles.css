@@ -1,86 +1,127 @@
-/* body{
-    background-color: yellow;
-} */
 html{
     overflow-y: scroll;
 }
-body{
-    /* padding: 50px; */
-    /* background-color: green; */
-}
-.rootBody{
-    /* background-color: #515070; */
-    background-color: #ffefe6
-}
+
+/* Layout Styles */
 .mainDiv{
     margin-top: 0;
-    
+    background-image: linear-gradient(55deg, rgba(255,0,0,0) 40%, rgba(255, 187, 145,1));
+}
+.mainContainer{
+    padding: 50px 0px;
 }
 .mainRow{
     padding: 10px;
 }
 .tagCol{
     margin: 0 auto;
+    border-right: 1px #dbdbdb solid;
 }
-.mainContainer{
-    /* background-color: #ffbb91; */
-    background-color: white;
-    /* border-radius: 10px; */
-    padding: 50px 0px;
-    box-shadow: 0 0 50px -20px;
+.eventsCol{
+    padding-right: 0;
 }
-.tagButton{
-    /* width: 80%; */
-    /* margin: 5px; */
-    border: none;
-    border-radius: 10px;
-    outline: none;
-    padding: 10px;
-    flex: 1;
-}
-.tagButton:focus{
-    outline: 0;
-}
-.selectedTag{
-    background-color: #515070;
-    color: white;
-    margin: 5px;
-}
-.notSelectedTag{
-    background-color: lightgrey;
-    margin: 5px
-}
-.tagDiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+
+/* Event Card Styles */
 .eventsDiv{
+    margin-top: 20px;
+    margin-left: 50px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 .eventCard{
     flex: 1;
-    box-shadow: 0 10px 40px -25px;
     width: 280px;
-    height: 400px;
-    margin: 10px;
+    margin: 5px 40px 40px;
+    box-shadow: 0 10px 20px -8px;
+}
+.eventH2{
+    font-size: 1.1rem;
+    color: #6b6b6b;
+    width: 280px;
+    margin: 0 40px;
+    visibility: visible;
 }
 .cardImg{
-    width: 100%;
-    height: 150px;
+    height: 240px;
     object-fit: cover;
 }
 .cardTitle{
     text-align: center;
-    height: 60px;
+    height: 50px;
+    color: white;
+    padding: 10px;
 }
 .cardDesc{
-    /* display: none; */
-    color: #999999;
+    color: #d3d3d3;
+    padding: 10px 20px;
 }
-.cardDesc:hover, .cardTitle:hover + .cardDesc{
-    /* display: block */
+.eventCard > .cardBody{
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: visibility 0s, opacity 0.5s, height 0.2s linear;
+}
+.eventCard:hover > .cardBody{
+    visibility: visible;
+    opacity: 1;
     color: black;
+    height: 110px;
+}
+
+/* Tag Area Styles */
+.tagDiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.tagTitle{
+    font-size: 1.1rem;
+    text-align: right;
+    padding: 10px;
+    font-family: 'Comfortaa', cursive;
+    color: grey;
+}
+.tagTitle:before{
+    content: "";
+    display: block;
+    margin: 0 auto 15px;
+    width: 180%;
+    border-top: 1px #dbdbdb solid;
+}
+.tagHR{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 0;
+    width: 60%;
+}
+.tagButton{
+    margin: 5px 10px;
+    width: 156px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    line-height: 20px;
+    text-align: right;
+    font-family: 'Comfortaa', cursive;
+    color: grey;
+    border: 1px white solid;
+}
+.tagButton:focus{
+    outline: 0;
+}
+.tagButton:hover{
+    border: 1px grey solid;
+    color: black;
+}
+.selectedTag{
+    background-color: #3f465a;
+    color: white;
+}
+.selectedTag:hover{
+    color: grey;
+}
+.notSelectedTag{
+    background-color: #ffffff;
 }

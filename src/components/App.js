@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import eventInfo from "../eventInfo.js"
 import Event from "./Event.js"
-import { Container, Row, Col } from "react-bootstrap"
+import { Row, Col } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -15,106 +15,19 @@ export default function App() {
     })
     tagList = Array.from(tagList);
 
-    var buttonsObj = {}
-    tagList.forEach((idx)=>{
-        buttonsObj[idx] = false
+    var tI = {}
+    tagList.forEach((tnull, index) => {
+        tI[index] = false;
     })
 
-    var tagsObject = {}
-    tagList.forEach(t2 => {
-        tagsObject[t2] = "notSelected"
+    var eI = {}
+    eventInfo.map((e, index) => {
+        eI[index] = {show: false, eventID: e}
     })
-  
-    const [tagButtons, setTagButtons] = useState(
-        {   
-                tagInfo :  {
-                "0": false,
-                "1": false, 
-                "2": false, 
-                "3": false, 
-                "4": false, 
-                "5": false, 
-                "6": false, 
-                "7": false, 
-                "8": false, 
-                "9": false, 
-                "10": false, 
-                "11": false, 
-                "12": false, 
-                "13": false, 
-                "14": false,
-                },
-            })
 
-    const events = 
-            {
-                "0": {
-                    show: false,
-                    eventID: eventInfo[0],
-                    },
-                
-                
-                "1": {
-                    show: false,
-                    eventID: eventInfo[1],
-                    },
-                
-                
-                "2": {
-                    show: false,
-                    eventID: eventInfo[2],
-                    },
-                
-            
-                "3": {
-                    show: false,
-                    eventID: eventInfo[3],
-                    },
-                
-                
-                "4": {
-                    show: false,
-                    eventID: eventInfo[4],
-                    },
-                
-                
-                "5": {
-                    show: false,
-                    eventID: eventInfo[5],
-                    },
-                
-                
-                "6": {
-                    show: false,
-                    eventID: eventInfo[6],
-                    },
-                
-                
-                "7": {
-                    show: false,
-                    eventID: eventInfo[7],
-                    },
-                
-                
-                "8": {
-                    show: false,
-                    eventID: eventInfo[8],
-                    }, 
-                
-                        
-                "9": {
-                    show: false,
-                    eventID: eventInfo[9],
-                    },
-                
-
-                "10": {
-                    show: false,
-                    eventID: eventInfo[10],
-                    },
-            }
-
-
+    const events = eI
+    const [tagButtons, setTagButtons] = useState({tagInfo :  tI})
+    const [tR, setTR] = useState([])
 
     function changeButton(event){
         const {id} = event.target    
@@ -126,48 +39,45 @@ export default function App() {
         })
     }
         
-        // console.log(setUpEvents)
-            // console.log(q[1].eventID))
-
-        const [tR, setTR] = useState([])
-        // console.log(tR)
-        useEffect(() => {
-            const tempSet = new Set()
-            if(Object.keys(tagButtons.tagInfo).every((w) => !tagButtons.tagInfo[w])){
-                eventInfo.map(ei => {
-                    tempSet.add(ei)
+    useEffect(() => {
+        const tempSet = new Set()
+        if(Object.keys(tagButtons.tagInfo).every((w) => !tagButtons.tagInfo[w])){
+            eventInfo.map(ei => {
+                tempSet.add(ei)
+            })
+        }
+        Object.entries(tagButtons.tagInfo).map((tk, i)=> {
+            if(tk[1]){
+                Object.entries(events).map((ek, ev) => {
+                    if(ek[1].eventID.tags.includes(tagList[i])){
+                        tempSet.add(events[ev].eventID)
+                    }
                 })
             }
-            Object.entries(tagButtons.tagInfo).map((tk, i)=> {
-                if(tk[1]){
-                    Object.entries(events).map((ek, ev) => {
-                        if(ek[1].eventID.tags.includes(tagList[i])){
-                            tempSet.add(events[ev].eventID)
-                        }
-                    })
-                }
-            })
-            setTR(Array.from(tempSet))
-        }, [tagButtons]);
+        })
+        setTR(Array.from(tempSet))
+    }, [tagButtons]);
         
-        function renderEvent(event, ind){
-            return(
-                <Event 
-                    key={ind}
-                    eventName={event.event_name}
-                    venueName={event.venue_name}
-                    desc={event.description}
-                    tags={event.tags}
-                    imagesrc={event.image_name}
-                />
-            )
-        }
+    function renderEvent(event, ind){
+        return(
+            <Event 
+                key={ind}
+                eventName={event.event_name}
+                venueName={event.venue_name}
+                desc={event.description}
+                tags={event.tags}
+                imagesrc={event.image_name}
+            />
+        )
+    }
 
     return(
         <div className={'mainDiv'}>
-            <Container className={'mainContainer'}>
-                <Row className={'mainRow'}>
+            <div className={'mainContainer'}>
+                <Row>
                     <Col md={2} className={'tagCol'}>
+                    <div className={"tagTitle"}>Please select a tag to filter results:</div>
+                    <hr className={'tagHR'}/>
                         <div className={'tagDiv'}>
                             {tagList.map((tag, index) => 
                                 <button 
@@ -186,8 +96,7 @@ export default function App() {
                         </div>
                     </Col>
                 </Row>
-            </Container>
+            </div>
         </div>
-    
     )
 }
