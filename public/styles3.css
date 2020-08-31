@@ -1,0 +1,122 @@
+html{
+    overflow-y: scroll;
+}
+.rootBody{
+    /* background-color: #403f5a; */
+    /* background-color: #bbe1fa */
+}
+.mainDiv{
+    margin-top: 0;
+}
+.mainRow{
+    padding: 10px;
+}
+.tagCol{
+    margin: 0 auto;
+    border: 1px rgb(219, 219, 219) solid;
+    border-bottom: none;
+    border-left: none;
+}
+.mainContainer{
+    padding: 50px 0px;
+}
+.eventsCol{
+    /* background-color: #3f465a; */
+}
+.tagDiv{
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    justify-content: flex-end;
+
+}
+.tagTitle{
+    font-size: 1.3rem;
+    text-align: right;
+    padding: 10px;
+    font-family: 'Comfortaa', cursive;
+    color: grey;
+}
+.eventsDiv{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* background-color: yellow; */
+}
+.eventCard{
+    flex: 1;
+    /* box-shadow: 0 10px 40px -25px; */
+    width: 320px;
+    /* height: 400px; */
+    margin: 40px;
+    /* background-color: #393e46; */
+    box-shadow: 0 10px 20px -8px;
+}
+.cardImg{
+    height: 240px;
+    object-fit: cover;
+    /* background-color: #3f465a; */
+    /* border: 1px #2a2f3c solid; */
+
+}
+.cardBody{
+    /* border: 1px black solid */
+    /* height: 0; */
+}
+.eventCard > .cardBody{
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: visibility 0s, opacity 0.5s, height 0.2s linear;
+}
+.cardTitle{
+    text-align: center;
+    height: 50px;
+    color: white;
+    padding: 10px;
+}
+.cardDesc{
+    /* display: none; */
+    color: #c0c0c0;
+    padding: 0 20px;
+}
+.eventCard:hover > .cardBody{
+    visibility: visible;
+    opacity: 1;
+    color: black;
+    height: 170px;
+}
+
+
+.tagButton{
+    margin: 5px 10px;
+    width: 156px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    line-height: 20px;
+    /* padding: 5px; */
+    text-align: right;
+    font-family: 'Comfortaa', cursive;
+    color: grey;
+    border: 1px white solid;
+}
+.tagButton:focus{
+    outline: 0;
+}
+.tagButton:hover{
+    border: 1px grey solid;
+    color: black;
+}
+.selectedTag{
+    background-color: #393e46;
+    color: white;
+}
+.selectedTag:hover{
+    color: grey;
+}
+.notSelectedTag{
+    background-color: rgb(255, 255, 255);
+}

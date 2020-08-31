@@ -1,0 +1,116 @@
+/* body{
+    background-color: yellow;
+} */
+html{
+    overflow-y: scroll;
+}
+body{
+    /* padding: 50px; */
+    /* background-color: green; */
+}
+.rootBody{
+    /* background-color: #403f5a; */
+    background-color: #bbe1fa
+}
+.mainDiv{
+    margin-top: 0;
+    
+}
+.mainRow{
+    padding: 10px;
+}
+.tagCol{
+    margin: 0 auto;
+}
+.mainContainer{
+    margin: 15px auto;
+    width: 1200px;
+    /* background-color: #ffbb91; */
+    /* background-color: #116b6b; */
+    /* border-radius: 10px; */
+    padding: 50px 0px;
+    /* box-shadow: 0 0 50px -20px; */
+}
+.tagRow{
+    flex-direction: row;
+}
+.tagButton{
+    margin: 5px;
+    width: 120px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    line-height: 20px;
+    padding: 5px;
+}
+.tagButton:focus{
+    outline: 0;
+}
+.selectedTag{
+    background-color: #393e46;
+    color: white;
+}
+.notSelectedTag{
+    background-color: rgb(255, 255, 255);
+}
+.tagDiv{
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    justify-content: center;
+
+}
+.eventsDiv{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #bbe1fa;
+}
+.eventCard{
+    flex: 1;
+    /* box-shadow: 0 10px 40px -25px; */
+    width: 410px;
+    /* height: 400px; */
+    margin: 0 auto;
+    background-color: #393e46;
+
+}
+.cardImg{
+    height: 240px;
+    object-fit: cover;
+    background-color: #3f465a;
+    border: 1px #2a2f3c solid;
+}
+.cardBody{
+    /* border: 1px black solid */
+    /* height: 0; */
+}
+.eventCard > .cardBody{
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: visibility 0s, opacity 0.5s, height 0.2s linear;
+}
+.cardTitle{
+    text-align: center;
+    height: 50px;
+    color: white;
+    padding: 10px;
+}
+.cardDesc{
+    /* display: none; */
+    color: #c0c0c0;
+    padding: 0 20px;
+}
+.eventCard:hover > .cardBody{
+    visibility: visible;
+    opacity: 1;
+    color: black;
+    height: 160px;
+}
+.eventsRow{
+    margin-top: 50px;
+    background-color: #3f465a;
+
+}
