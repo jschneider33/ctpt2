@@ -7,51 +7,51 @@ html{
 }
 .mainDiv{
     margin-top: 0;
+    background-image: linear-gradient(55deg, rgba(255,0,0,0) 40%, rgba(255, 187, 145,1));
+
 }
 .mainRow{
     padding: 10px;
 }
 .tagCol{
     margin: 0 auto;
-    border: 1px rgb(219, 219, 219) solid;
-    border-bottom: none;
-    border-left: none;
+    border-right: 1px rgb(219, 219, 219) solid;
+
 }
 .mainContainer{
     padding: 50px 0px;
 }
 .eventsCol{
     /* background-color: #3f465a; */
+    padding-right: 0;
 }
-.tagDiv{
-    display: flex;
-    flex-wrap: wrap;
-    /* flex-direction: column; */
-    justify-content: flex-end;
 
-}
-.tagTitle{
-    font-size: 1.3rem;
-    text-align: right;
-    padding: 10px;
-    font-family: 'Comfortaa', cursive;
-    color: grey;
-}
 .eventsDiv{
+    margin-top: 20px;
     margin-left: 50px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    
     /* background-color: yellow; */
 }
+
+/* Event Card Styles */
 .eventCard{
     flex: 1;
     /* box-shadow: 0 10px 40px -25px; */
-    width: 320px;
+    width: 280px;
     /* height: 400px; */
-    margin: 40px;
+    margin: 5px 40px 40px;
     /* background-color: #393e46; */
     box-shadow: 0 10px 20px -8px;
+}
+.eventH2{
+    font-size: 1.1rem;
+    color: #6b6b6b;
+    width: 280px;
+    margin: 0 40px;
+    visibility: visible;
 }
 .cardImg{
     height: 240px;
@@ -61,8 +61,7 @@ html{
 
 }
 .cardBody{
-    /* border: 1px black solid */
-    /* height: 0; */
+
 }
 .eventCard > .cardBody{
     visibility: hidden;
@@ -79,16 +78,48 @@ html{
 .cardDesc{
     /* display: none; */
     color: #c0c0c0;
-    padding: 0 20px;
+    padding: 10px 20px;
+}
+.eventCard:hover > .eventH2{
+    /* visibility: hidden; */
+    color: green;
 }
 .eventCard:hover > .cardBody{
     visibility: visible;
     opacity: 1;
     color: black;
-    height: 170px;
+    height: 110px;
 }
 
+/* Tag Area Styles */
+.tagDiv{
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    justify-content: flex-end;
 
+}
+.tagTitle{
+    font-size: 1.1rem;
+    text-align: right;
+    padding: 10px;
+    font-family: 'Comfortaa', cursive;
+    color: grey;
+}
+.tagTitle:before{
+    content: "";
+    display: block;
+    margin: 0 auto 15px;
+    width: 180%;
+    /* color: red; */
+    border-top: 1px rgb(219, 219, 219) solid;
+}
+.tagHR{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 0;
+    width: 60%;
+}
 .tagButton{
     margin: 5px 10px;
     width: 156px;

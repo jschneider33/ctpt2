@@ -170,7 +170,7 @@ export default function App() {
                     
                     <Col md={2} className={'tagCol'}>
                     <div className={"tagTitle"}>Please select a tag to filter results:</div>
-
+                    <hr className={'tagHR'}/>
                         <div className={'tagDiv'}>
                             {tagList.map((tag, index) => 
                                 <button 
